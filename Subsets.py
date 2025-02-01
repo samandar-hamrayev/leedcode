@@ -17,6 +17,6 @@ class Solution:
 
 
 sol = Solution()
-print(sol.subsets([4,4,4,1,4]))
+print(sol.subsets([1, 2, 2, 3, 4]))
 
 
