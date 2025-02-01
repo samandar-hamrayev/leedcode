@@ -34,6 +34,8 @@ def make_spiral(m, n):
 
 print(make_spiral(10, 1))
 
+# githubga qayta push qilish uchun komment yozib qoydim
+
 
 
 
