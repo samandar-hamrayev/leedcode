@@ -26,7 +26,18 @@ def mergesort(nums: list[int]):
     return nums
 
 
-print(mergesort([5, 7, 3, 9, 10, 2]))
+
+def quicksort(arr : list[int]):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        left = [num for num in arr[1:] if num < pivot]
+        right = [num for num in arr[1:] if num >= pivot]
+        return quicksort(left) + [pivot] + quicksort(right)
+
+print(mergesort([4, 2,7, 3, 2, 9, 4]))
+print(quicksort([4, 2,7, 3, 2, 9, 4]))
 
 
 
