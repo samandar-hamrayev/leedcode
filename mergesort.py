@@ -36,6 +36,15 @@ def quicksort(arr : list[int]):
         right = [num for num in arr[1:] if num >= pivot]
         return quicksort(left) + [pivot] + quicksort(right)
 
+def mysort(arr: list[int]):
+    for i in range(len(arr)):
+        for j in range(1, len(arr) - i):
+            if arr[j] < arr[j-1]:
+                arr[j], arr[j-1] = arr[j-1], arr[j]
+    return arr
+
+
+print(mysort([4, 2, 7, 3, 2, 9, 4]))
 print(mergesort([4, 2,7, 3, 2, 9, 4]))
 print(quicksort([4, 2,7, 3, 2, 9, 4]))
 
