@@ -1,7 +1,6 @@
 def mergesort(nums: list[int]):
     if len(nums) >  1:
         mid = len(nums) // 2
-
         left = mergesort(nums[:mid])
         right = mergesort(nums[mid:])
         i, j, k = 0, 0, 0
@@ -24,8 +23,6 @@ def mergesort(nums: list[int]):
             j += 1
             k += 1
     return nums
-
-
 
 def quicksort(arr : list[int]):
     if len(arr) <= 1:
