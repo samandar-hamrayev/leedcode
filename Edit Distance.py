@@ -20,10 +20,5 @@ class Solution:
                         dp[i-1][j-1]
                     ) + 1
         return dp[m][n]
-
-
-
-
-
 sol = Solution()
 print(sol.minDistance(word1 = "horse", word2 = "ros"))
