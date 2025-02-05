@@ -1,38 +1,45 @@
 import heapq
 
-def dijkstra(graph, start):
-    # Boshlang'ich tugundan masofalarni saqlash uchun dictionary
-    distances = {vertex: float('infinity') for vertex in graph}
+
+def dijkstra(start, end, graph):
+    distances = {place: float('inf') for place in graph}
     distances[start] = 0
 
-    # Priority queue (heap) ishga tushirish
-    priority_queue = [(0, start)]
-
+    priority_queue = [(start, 0)]
+    prevs = {}
     while priority_queue:
-        current_distance, current_vertex = heapq.heappop(priority_queue)
+        current_place, current_distance = heapq.heappop(priority_queue)
 
-        # Katta masofalar uchun davom etmaslik
-        if current_distance > distances[current_vertex]:
-            continue
+        if current_place == end:
+            break
 
-        # Qo'shni tugunlarni ko'rib chiqish
-        for neighbor, weight in graph[current_vertex].items():
+        for neighbor, weight in graph[current_place].items():
             distance = current_distance + weight
 
-            # Yangi eng qisqa yo'l topilgan bo'lsa
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
-                heapq.heappush(priority_queue, (distance, neighbor))
+                prevs[neighbor] = current_place
+                heapq.heappush(priority_queue, (neighbor, distance))
 
-    return distances
+    path = []
+    while end in prevs:
+        path.append(end)
+        end = prevs[end]
+    path.append(end)
+    path.reverse()
 
-# Misol grafik
+    return distances, path
+
+
 graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1},
+    'A': {'B': 5, 'C': 2},
+    'B': {'D': 4},
+    'C': {'B': 3, 'E': 6, 'D': 5},
+    'D': {'F': 5},
+    'E': {'F': 0},
+    'F': {}
 }
 
-# 'A' tugundan barcha tugunlarga eng qisqa yo'llar
-print(dijkstra(graph, 'A'))  # Output: {'A': 0, 'B': 1, 'C': 3, 'D': 4}
+shortest_weith, shortest_path = dijkstra('A', 'F', graph)
+print(f"Eng qisqa yo'l qiymati:{shortest_weith}\n"
+      f"Eng qisqa yo'l yo'nalishi:", " -> ".join(shortest_path))
