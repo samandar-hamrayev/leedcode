@@ -37,8 +37,7 @@ class Solution:
 
         result = {1: root.val}
 
-        queue = deque()
-        queue.append((root, 1))
+        queue = deque([(root, 1)])
         while queue:
             node, level = queue.popleft()
 
@@ -53,8 +52,6 @@ class Solution:
                     result[level + 1] = node.left.val
 
         return list(result.values())
-
-
 
 root = TreeNode(1)
 root.right = TreeNode(3)
