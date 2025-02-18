@@ -45,7 +45,7 @@ def make_spiral(m, n):
 
 
 dek = decorator(make_spiral)
-print(dek(10, 10))
+print(dek(10, 4))
 
 
 
