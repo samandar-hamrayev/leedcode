@@ -42,10 +42,10 @@ class Solution:
 
         mid = slow
         right = mid.next
-        mid.next = None  # `mid` ni `right`dan ajratish
+        mid.next = None
 
         if prev:
-            prev.next = None  # `left` qismini ajratish
+            prev.next = None
 
         return head if prev else None, mid, right
 
