@@ -61,8 +61,8 @@ head.next.next.next.next = ListNode(9)
 sol = Solution()
 first, mid, second = sol.divide_linked_list(head)
 print(mid.val)
-
 print(sol.sortedListToBST(head).val)
+
 
 
 
