@@ -8,6 +8,5 @@ class Solution:
             twos = (twos ^ num) & ~ ones
         return ones
 
-
 sol = Solution()
 print(sol.singleNumber(nums = [2, 2, 3, 2]))
