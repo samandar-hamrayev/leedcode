@@ -36,6 +36,7 @@ class CorrelationCalculator:
         denominator = math.sqrt((n * sumX2 - sumX ** 2) * (n * sumY2 - sumY ** 2))
 
         if denominator == 0:
+
             if numerator > 0:
                 return "inf"
             elif numerator < 0:
