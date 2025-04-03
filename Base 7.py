@@ -8,12 +8,11 @@ class Solution:
 
         result = ""
         while num > 0:
-            result = str(num  % 7) + result
+            result = str(num % 7) + result
             num //= 7
 
         return "-" + result if is_negative else result
 
+
 sol = Solution()
 print(sol.convertToBase7(100))
-
-
